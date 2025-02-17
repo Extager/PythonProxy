@@ -9,11 +9,12 @@ class Proxy:
         s = socks.socksocket()
         s.set_proxy(socks.SOCKS5, self.ip, self.port)
         print(f"Connecting to {self.ip}:{self.port}")
-
+        s.connect((self.ip, self.port))
 
 def main():
-    proxy = Proxy('127.0.0.1', 9050)
+    proxy = Proxy('ip', 8080)
     proxy.connect()
+    input("Press enter to exit>> ")
 
 
 if __name__ == '__main__':
